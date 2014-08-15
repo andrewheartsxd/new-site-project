@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Universal Undies - World's Most Comfy Breifs!</title>
+        <link rel="stylesheet" type="text/css" href="normalize.css">
+        <link rel="stylesheet" type="text/css" href="skeleton.css">
+        <link rel="stylesheet" type="text/css" href="primer.css">
+        <link rel="stylesheet" type="text/css" href="index.css">
+        <link rel="stylesheet" type="text/css" href="states.css">
+        <link rel="stylesheet" type="text/css" href="themes.css">
+        <script src="buttons.js"></script>
+    </head>
+    <body>
+        <main class="container">
+            <section class="background">
+                <div class="two columns">&nbsp;</div>
+                <img id="back-picture" class="twelve columns" src="pictures/background.jpg">
+                <div class="two columns">&nbsp;</div>
+            </section>
+            <a href="index.html"><img src="pictures/UUlogo.jpg" class="logo"></a>
+            <h6 class="shipping">FREE SHIPPING IN<br>THE US & CANADA</h6>
+            <a href="#"><img class="fblike" src="pictures/fblike.png"></a>
+            <header class="sixteen columns">
+                <nav class="navlist">
+                    <ul class="nav-bar">
+                        <li><a href="index.html"><strong>HOME</strong></a></li>
+                        <li><a href="about.html"><strong>ABOUT</strong></a></li>
+                        <li><a href="contact.html"><strong>CONTACT</strong></a></li>
+                    </ul>
+                </nav>
+            </header>
+            <br>
+            <br>
+            <br>
+            <section class="content">
+                <div class="three columns">&nbsp;</div>
+                <h3 class="subtitle">The Most Comfortable Underwear In The Universe</h3>
+                <br>
+                <div class="selector">
+                    <div class="eleven columns">&nbsp;</div>
+                    <div class="five columns">
+                        <h1>MEN'S BRIEF</h1>
+                        <p id="color"><em>pink</em></p>
+                        <p class="cost">$50.00</p>
+                        <br>
+                        <div class="size-buttons">
+                            <img id="size-s" src="pictures/size-s.png" onclick="changeimageS();">
+                            <img id="size-m;" src="pictures/size-m.png" onclick="changeimageM();">
+                            <img id="size-l" src="pictures/size-l.png" onclick="changeimageL();">
+                        </div>
+                        <br>
+                        <div class="color-buttons">
+                            <a href="#"><img src="pictures/pink-button.jpg"></a>
+                            <a href="#"><img src="pictures/mint-button.jpg"></a>
+                            <a href="#"><img src="pictures/army-button.jpg"></a>
+                            <a href="#"><img src="pictures/dotted-button.jpg"></a>
+                            <a href="#"><img src="pictures/beach-button.jpg"></a>
+                            <a href="#"><img src="pictures/surf-button.jpg"></a>
+                        </div>
+                        <br>
+                        <pre><div class="quantity" id="incdec">QUANTITY:  <input id="quantity" type="text" value="0"></div></pre>
+                        <input id="add-cart" type="button" value="ADD TO CART">
+                    </div>
+                <div>
+                <div class="info ten columns">
+                    <h1 class="info__title"><strong>DESCRIPTION</strong></h1>
+                    <h3 class="info__subtitle">These aren't your typical "tightie-whities". Manly briefs for a manly man.</h5>
+                    <ul class="info__content">
+                        <li>92% Modal 8% Elasthane</li>
+                        <li>100% Natural from indigenous beech wood</li>
+                        <li>Non-Riding</li>
+                        <li>Natural Bacteria Inhibitor</li>
+                        <li>Contour pouch for superior comfort and support</li>
+                        <li>Low Fiber Rigidity</li>
+                        <li>Made in Turkey</li>
+                        <li>Full of Code Fellow Awesomness</li>
+                    </ul>
+                </div>
+
+                <!--SPACING////////////////////////////////-->
+                <div class="sixteen columns">&nbsp;</div>
+                <div class="sixteen columns">&nbsp;</div>
+                <!--SPACING////////////////////////////////-->
+
+                <div class="sixteen columns">
+                    <h1 id="checkout-title">SHOPPING CART</h1>
+                </div>
+
+                <div class="sixteen columns">&nbsp;</div>
+
+                <div class="checkout">
+                    <div class="checkout-item-column eight columns">
+                        <div class="checkout-item-title">ITEMS</div><br>
+                        <div id="checkout-item"></div>
+                    </div>
+                    <div class="checkout-quantity-column two columns">
+                        <div class="checkout-quantity-title">QUANTITY</div><br>
+                        <div id="checkout-item"></div>
+                    </div>
+                    <div class="checkout-price-column three columns">
+                        <div class="checkout-price-title">PRICE</div><br>
+                        <div id="checkout-price"></div>
+                    </div>
+                    <div class="checkout-toal-column three columns">
+                        <div class="checkout-total-title">TOTAL</div><br>
+                        <div id="checkout-total"></div>
+                    </div>
+
+                    <div class="sixteen columns">&nbsp;</div>
+
+                    <div class="eight columns">&nbsp;</div>
+                    <div class="addon-titles two columns">
+                        <div class="shipping-title">SHIPPING</div>
+                        <div class="tax-title">TAX</div>
+                        <div class="total-title">TOTAL</div>
+                    </div>
+                    <div class="three columns">&nbsp;</div>
+                    <div class="addon-values three columns">
+                        <div id="shipping-value">FREE SHIPPING</div>
+                        <div id="tax-value"></div>
+                        <div class="total-value"></div>
+                    </div>
+                </div>
+
+                <!--SPACING////////////////////////////////-->
+                <div class="sixteen columns">&nbsp;</div>
+                <div class="sixteen columns">&nbsp;</div>
+                <div class="sixteen columns">&nbsp;</div>
+                <!--SPACING////////////////////////////////-->
+
+                <section>
+                    <div class="address eight columns">
+                        <div class="address-title">SHIPPING ADDRESS</div>
+                        <br>
+                        <pre><div class="address-street">STREET:                                       <input id="input-street" type="text"></div></pre>
+                        <pre><div class="address-city">CITY:                                          <input id="input-city" type="text"></div></pre>
+                        <pre><div class="address-zip">STATE:                                        <input id="input-zip" type="text"></div></pre>
+                        <pre><div class="address-zip">ZIP CODE:                                  <input id="input-zip" type="text"></div></pre>
+
+                        <input id="submit-shipping"type="button" value="SUBMIT">
+                    </div>
+                    <div class="payment eight columns">
+                        <div class="payment-title">PAYMENT</div>
+                        <p class="payment-method"><em>Pay in person</em></p>
+                    <div>
+                </section>
+
+                <!--SPACING////////////////////////////////-->
+                <div class="sixteen columns">&nbsp;</div>
+                <div class="sixteen columns">&nbsp;</div>
+                <div class="sixteen columns">&nbsp;</div>
+                <!--SPACING////////////////////////////////-->
+
+                <div class="confirmation sixteen columns">
+                    <div class="confirmation-title">CONFIRMATION</div>
+                    <br>
+                    <div id="result-name"></div>
+                    <div id="result-address"></div>
+                    <div id="result-cart"></div>
+                    <div id="result-total"></div>
+                </div>
+                <div class="sixteen columns">&nbsp;</div>
+                <div class="thank-you sixteen columns">THANK YOU FOR SHOPPING!</div>
+
+                <!--SPACING////////////////////////////////-->
+                <div class="sixteen columns">&nbsp;</div>
+                <div class="sixteen columns">&nbsp;</div>
+                <div class="sixteen columns">&nbsp;</div>
+                <!--SPACING////////////////////////////////-->
+
+            </section>
+            <br>
+        </main>
+        </script>
+    </body>
+</html>
