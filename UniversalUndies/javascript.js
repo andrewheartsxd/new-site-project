@@ -1,45 +1,47 @@
-function Brief (color, size, price, quantity) {
-  this.color = color;
-  this.size = size;
-  this.price = price;
-  this.quantity = quantity;
-}
-function Cart(orderNo) {
-  this.orderNo = orderNo;
-  this.cartArray = new Array();
-  this.addToCart = function() {
-    var briefNew = makeBrief();
-    this.cartArray.push(briefNew);
-   }
-
-  function makeBrief() {
-    var color = document.getElementById("color").textContent;
-    var size = document.getElementById("size").textContent;
-    var price = document.getElementById("price").textContent;
-    var quantity = document.getElementById("quantity").textContent;
-    return new Brief(color, size, price, quantity);
-  }
-
-  this.sortCart = function() {
-    for (i = 0; i < this.cartArray.length; i++) {
-      for (k = 1; k < this.cartArray.length; k++) {
-        if (this.cartArray[i].color === this.cartArray[k].color &&
-            this.cartArray[i].size === this.cartArray[k].size ) {
-            this.cartArray[i].quantity =+ this.cartArray[k].quantity;
-            this.cartArray.splice(k, 1);
-            k -= 1;
-        }
-      }
-    }
-  }
-}
-// function Customer() {
-
-// }
 var selectedColor;
 var selectedSize;
 var selectedQuantity;
-var selectedPrice;
+var colors = ["pink", "mint", "army", "dotted", "beach", "surf"];
+var sizes = ["s", "m", "l"];
+var noCombinations = colors.length * sizes.length;
+var price = 50;
+
+function Brief (color, size, price, productNo) {
+  this.color = color;
+  this.size = size;
+  this.price = price;
+  this.productNo = productNo;
+}
+function makeProductList() {
+  productList = new Array();
+
+  for(c = 0; c < colors.length; c++) {
+    for(s = 0; s < sizes.length; s++) {
+      var tempBrief = new Brief(colors[c], sizes[s], price, 0);
+      productList.push(tempBrief);
+    }
+  }
+  return productList; //[(pink,s,50,0),(pink,m,50,0)...]
+}
+
+
+function addToCart() {
+  for(i = 0; i < productList.length; i++) {
+    if(selectedColor === productList[i].color && selectedSize === productList[i].size && selectedQuantity > 0) {
+      productList[i].productNo += selectedQuantity;
+      alert(productList[i].color + productList[i].size + productList[i].price + productList[i].productNo)
+    }
+    else{
+      document.getElementById("add-cart").value = "Select a color, size, and quantity.";
+    }
+  }
+}
+
+
+// function Customer() {
+
+// }
+
 document.getElementById("pink-button").addEventListener('click', selectColorPink,false);
 document.getElementById("mint-button").addEventListener("click", selectColorMint,false);
 document.getElementById("army-button").addEventListener('click', selectColorArmy,false);
@@ -55,6 +57,14 @@ document.getElementById("size-l").addEventListener('mouseover', hoverOnSizeL,fal
 document.getElementById("size-s").addEventListener('mouseout', hoverOutSizeS,false);
 document.getElementById("size-m").addEventListener('mouseout', hoverOutSizeM,false);
 document.getElementById("size-l").addEventListener('mouseout', hoverOutSizeL,false);
+document.getElementById("add-cart").addEventListener('click', changeAddToCartTextADDED, false);
+document.getElementById("add-cart").addEventListener('mouseout', changeAddToCartTextREVERT, false);
+document.getElementById("add-cart").addEventListener('click', addToCart, false);
+document.getElementById("quantityInput").addEventListener('change',selectQuantity,false);
+
+function selectQuantity() {
+  selectedQuantity = parseInt(document.getElementById("quantityInput").value);
+}
 function selectColorPink() {
   selectedColor = "pink";
 }
@@ -79,7 +89,6 @@ function selectSizeS() {
     selectedSize = "s";
     changeImageToClickedS();
     changeImageToUnclickedM();
-    changeImageToUnclickedL();
   }
   else {
     selectedSize = "void";
@@ -147,7 +156,7 @@ function changeImageToUnclickedS() {
   document.getElementById("size-s").src = "pictures/size-s.png";
 }
 function changeImageToHoverS() {
-  document.getElementById("size-s").src = "pictures/size-s-hover.png";
+  document.getElementById("size-s").src = "#";
 }
 function changeImageToClickedM() {
   document.getElementById("size-m").src = "pictures/size-m-click.png";
@@ -156,7 +165,7 @@ function changeImageToUnclickedM() {
   document.getElementById("size-m").src = "pictures/size-m.png";
 }
 function changeImageToHoverM() {
-  document.getElementById("size-m").src = "pictures/size-m-hover.png";
+  document.getElementById("size-m").src = "#";
 }
 function changeImageToClickedL() {
   document.getElementById("size-l").src = "pictures/size-l-click.png";
@@ -167,13 +176,14 @@ function changeImageToUnclickedL() {
 function changeImageToHoverL() {
   document.getElementById("size-l").src = "pictures/size-l-hover.png";
 }
-// var cartObj = new Cart(1);
+function changeAddToCartTextADDED(){
+  document.getElementById("add-cart").value = "ITEM ADDED";
+}
+function changeAddToCartTextREVERT(){
+  document.getElementById("add-cart").value = "ADD TO CART";
+}
 
-// alert(cartObj.cartArray[0].color)
 
-// function showCart() {
-//   document.getElementById("cart1").innerHTML.textContent = cartObj.cartArray[0].color
-//   document.getElementById("cart2").innerHTML.textContent = cartObj.cartArray[1].color
-//   document.getElementById("cart3").innerHTML.textContent = cartObj.cartArray[2].color
-// }
 
+//---- The only actual running code that runs on load.
+makeProductList();
