@@ -6,9 +6,8 @@
         <link rel="stylesheet" type="text/css" href="skeleton.css">
         <link rel="stylesheet" type="text/css" href="primer.css">
         <link rel="stylesheet" type="text/css" href="index.css">
-        <link rel="stylesheet" type="text/css" href="states.css">
-        <link rel="stylesheet" type="text/css" href="themes.css">
-        <script src="buttons.js"></script>
+        <link rel="stylesheet" type="text/css" href="state.css">
+        <link rel="stylesheet" type="text/css" href="theme.css">
     </head>
     <body>
         <main class="container">
@@ -44,18 +43,18 @@
                         <p class="cost">$50.00</p>
                         <br>
                         <div class="size-buttons">
-                            <img id="size-s" src="pictures/size-s.png" onclick="changeimageS();">
-                            <img id="size-m;" src="pictures/size-m.png" onclick="changeimageM();">
-                            <img id="size-l" src="pictures/size-l.png" onclick="changeimageL();">
+                            <img id="size-s" src="pictures/size-s.png">
+                            <img id="size-m" src="pictures/size-m.png">
+                            <img id="size-l" src="pictures/size-l.png">
                         </div>
                         <br>
                         <div class="color-buttons">
-                            <a href="#"><img src="pictures/pink-button.jpg"></a>
-                            <a href="#"><img src="pictures/mint-button.jpg"></a>
-                            <a href="#"><img src="pictures/army-button.jpg"></a>
-                            <a href="#"><img src="pictures/dotted-button.jpg"></a>
-                            <a href="#"><img src="pictures/beach-button.jpg"></a>
-                            <a href="#"><img src="pictures/surf-button.jpg"></a>
+                            <a href="#"><img src="pictures/pink-button.jpg" id="pink-button"></a>
+                            <a href="#"><img src="pictures/mint-button.jpg" id="mint-button"></a>
+                            <a href="#"><img src="pictures/army-button.jpg" id="army-button"></a>
+                            <a href="#"><img src="pictures/dotted-button.jpg" id="dotted-button"></a>
+                            <a href="#"><img src="pictures/beach-button.jpg" id="beach-button"></a>
+                            <a href="#"><img src="pictures/surf-button.jpg" id="surf-button"></a>
                         </div>
                         <br>
                         <pre><div class="quantity" id="incdec">QUANTITY:  <input id="quantity" type="text" value="0"></div></pre>
@@ -171,6 +170,7 @@
             </section>
             <br>
         </main>
-        </script>
+        <script src="javascript.js"></script>
+        <script src="buttons.js"></script>
     </body>
 </html>
