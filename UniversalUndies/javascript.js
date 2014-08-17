@@ -3,8 +3,8 @@ var selectedSize;
 var selectedQuantity;
 var colors = ["pink", "mint", "army", "dotted", "beach", "surf"];
 var sizes = ["s", "m", "l"];
-var noCombinations = colors.length * sizes.length;
 var price = 50;
+// var cartFull = false
 
 function Brief (color, size, price, productNo) {
   this.color = color;
@@ -14,7 +14,7 @@ function Brief (color, size, price, productNo) {
 }
 
 function makeProductList() {
-  productList = new Array();
+  productList = [];
 
   for(c = 0; c < colors.length; c++) {
     for(s = 0; s < sizes.length; s++) {
@@ -30,11 +30,88 @@ function addToCart() {
   for(i = 0; i < productList.length; i++) {
     if(selectedColor === productList[i].color && selectedSize === productList[i].size && selectedQuantity > 0) {
       productList[i].productNo += selectedQuantity;
+      // var cartFull = true
       alert(productList[i].color + productList[i].size + productList[i].price + productList[i].productNo)
     }
-    else{
-      document.getElementById("add-cart").value = "Select a color, size, and quantity.";
+    else {
+      // var cartFull = false
+      document.getElementById("add-cart").value = "Select a size, color, and quantity.";
     }
+  }
+}
+
+function checkoutFunction() {
+  //Checks to see if anything is in cart
+  for(i = 0; i < productList.length; i++) {
+    if(productList[i].productNo > 0) {
+      var cartFull = true
+    }
+  }
+
+  if(cartFull === true) {
+
+
+    //scrolls down to checkout section
+    location.href="#";
+    location.href="#checkout-bookmark";
+    //builds order array
+    orderList = [];
+
+    for(i = 0; i < productList.length; i++) {
+      if(productList[i].productNo > 0) {
+        orderList.push(productList[i]);
+      }
+    }
+    //Under "Items" lists items in cart
+    for(i = 0; i < orderList.length; i++) {
+      var div = document.createElement("div");
+      var node = document.createTextNode("Brief: " + orderList[i].color + " " + orderList[i].size);
+      div.appendChild(node);
+
+      var element = document.getElementById("checkout-item-title");
+      element.appendChild(div);
+    }
+    //Under "Quantity" lists quantity of items in cart
+    for(i = 0; i < orderList.length; i++) {
+      var div = document.createElement("div");
+      var node = document.createTextNode(orderList[i].productNo + "x");
+      div.appendChild(node);
+
+      var element = document.getElementById("checkout-quantity-title");
+      element.appendChild(div);
+    }
+    //Under "Price" lists price of items in cart
+    for(i = 0; i < orderList.length; i++) {
+      var div = document.createElement("div");
+      var node = document.createTextNode("$" + orderList[i].price + ".00");
+      div.appendChild(node);
+
+      var element = document.getElementById("checkout-price-title");
+      element.appendChild(div);
+    }
+    //Under "Subtotal" lists subtotal of items in cart
+    for(i = 0; i < orderList.length; i++) {
+      var div = document.createElement("div");
+      var node = document.createTextNode("$" + orderList[i].price * orderList[i].productNo + ".00");
+      div.appendChild(node);
+
+      var element = document.getElementById("checkout-total-title");
+      element.appendChild(div);
+    }
+    //Calculates Total, calculates Tax, lists under "Total" and "Tax", respectively
+    var total = 0
+    for(i = 0; i < orderList.length; i++) {
+      var subtotal = (orderList[i].price * orderList[i].productNo);
+      total = total + subtotal;
+    }
+    var tax = (0.095 * total)
+    total = total + tax
+    document.getElementById("tax-value").innerHTML = "$" + tax + ".00"
+    document.getElementById("total-value").innerHTML = "$" + total + ".00"
+
+  }
+  else {
+    alert("Select a size, color, and quantity.");
   }
 }
 
@@ -65,6 +142,9 @@ document.getElementById("add-cart").addEventListener('click', changeAddToCartTex
 document.getElementById("add-cart").addEventListener('mouseout', changeAddToCartTextREVERT, false);
 document.getElementById("add-cart").addEventListener('click', addToCart, false);
 document.getElementById("quantityInput").addEventListener('change',selectQuantity,false);
+
+document.getElementById("checkout").addEventListener('click', checkoutFunction, false);
+
 
 function selectQuantity() {
   selectedQuantity = parseInt(document.getElementById("quantityInput").value);
