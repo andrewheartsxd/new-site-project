@@ -173,6 +173,7 @@ function selectSizeS() {
     selectedSize = "s";
     changeImageToClickedS();
     changeImageToUnclickedM();
+    changeImageToUnclickedL();
   }
   else {
     selectedSize = "void";
