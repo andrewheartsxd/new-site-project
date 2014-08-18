@@ -31,7 +31,6 @@ function addToCart() {
     if(selectedColor === productList[i].color && selectedSize === productList[i].size && selectedQuantity > 0) {
       productList[i].productNo += selectedQuantity;
       // var cartFull = true
-      alert(productList[i].color + productList[i].size + productList[i].price + productList[i].productNo)
     }
     else {
       // var cartFull = false

@@ -100,7 +100,13 @@
 .addon-titles{
   font-size: 20px;
 }
+.checkout-remove{
+  text-align: center;
+}
 
+.remove{
+  font-size: 20px;
+}
 .addon-values{
   text-align: right;
   font-size: 20px;
