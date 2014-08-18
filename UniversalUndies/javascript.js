@@ -145,6 +145,7 @@ document.getElementById("quantityInput").addEventListener('change',selectQuantit
 
 document.getElementById("checkout").addEventListener('click', checkoutFunction, false);
 
+var mainImageChange = document.getElementById("main-image");
 
 function selectQuantity() {
   selectedQuantity = parseInt(document.getElementById("quantityInput").value);
@@ -167,6 +168,154 @@ function selectColorBeach() {
 function selectColorSurf() {
   selectedColor = "surf";
 }
+
+function selectColorPink(){
+  if(selectedColor != "pink"){
+    selectedColor = "pink";
+    changeImageToClickedPink();
+    changeImageToUnclickedMint();
+    changeImageToUnclickedArmy();
+    changeImageToUnclickedDotted();
+    changeImageToUnclickedBeach();
+    changeImageToUnclickedSurf();
+    mainImageChange.src = "pictures/pink.jpg";
+  }else {
+    selectedColor = "void";
+    changeImageToUnclickedPink();
+  }
+};
+
+function selectColorMint(){
+  if(selectedColor != "mint"){
+    selectedColor = "mint";
+    changeImageToClickedMint();
+    changeImageToUnclickedPink();
+    changeImageToUnclickedArmy();
+    changeImageToUnclickedDotted();
+    changeImageToUnclickedBeach();
+    changeImageToUnclickedSurf();
+    mainImageChange.src = "pictures/mint.jpg";
+  }else {
+    selectedColor = "void";
+    changeImageToUnclickedMint();
+  }
+};
+
+function selectColorArmy(){
+  if(selectedColor != "army"){
+    selectedColor = "army";
+    changeImageToClickedArmy();
+    changeImageToUnclickedPink();
+    changeImageToUnclickedMint();
+    changeImageToUnclickedDotted();
+    changeImageToUnclickedBeach();
+    changeImageToUnclickedSurf();
+    mainImageChange.src = "pictures/army.jpg";
+  }else {
+    selectedColor = "void";
+    changeImageToUnclickedArmy();
+  }
+};
+
+function selectColorDotted(){
+  if(selectedColor != "dotted"){
+    selectedColor = "dotted";
+    changeImageToClickedDotted();
+    changeImageToUnclickedPink();
+    changeImageToUnclickedMint();
+    changeImageToUnclickedArmy();
+    changeImageToUnclickedBeach();
+    changeImageToUnclickedSurf();
+    mainImageChange.src = "pictures/dotted.jpg";
+  }else {
+    selectedColor = "void";
+    changeImageToUnclickedDotted();
+  }
+};
+
+function selectColorBeach(){
+  if(selectedColor != "beach"){
+    selectedColor = "beach";
+    changeImageToClickedBeach();
+    changeImageToUnclickedPink();
+    changeImageToUnclickedMint();
+    changeImageToUnclickedArmy();
+    changeImageToUnclickedDotted();
+    changeImageToUnclickedSurf();
+    mainImageChange.src = "pictures/beach.jpg";
+  }else {
+    selectedColor = "void";
+    changeImageToUnclickedBeach();
+  }
+};
+
+function selectColorSurf(){
+  if(selectedColor != "surf"){
+    selectedColor = "surf";
+    changeImageToClickedSurf();
+    changeImageToUnclickedPink();
+    changeImageToUnclickedMint();
+    changeImageToUnclickedArmy();
+    changeImageToUnclickedDotted();
+    changeImageToUnclickedBeach();
+    mainImageChange.src = "pictures/surf.jpg";
+  }else {
+    selectedColor = "void";
+    changeImageToUnclickedSurf();
+  }
+};
+
+function changeImageToClickedPink() {
+  document.getElementById("pink-button").src = "pictures/pink-button-click.jpg";
+}
+
+function changeImageToClickedMint() {
+  document.getElementById("mint-button").src = "pictures/mint-button-click.jpg";
+}
+
+function changeImageToClickedArmy() {
+  document.getElementById("army-button").src = "pictures/army-button-click.jpg";
+}
+
+function changeImageToClickedDotted() {
+  document.getElementById("dotted-button").src = "pictures/dotted-button-click.jpg";
+}
+
+function changeImageToClickedBeach() {
+  document.getElementById("beach-button").src = "pictures/beach-button-click.jpg";
+}
+
+function changeImageToClickedSurf() {
+  document.getElementById("surf-button").src = "pictures/surf-button-click.jpg";
+}
+
+//Unclicked Color Buttons
+
+function changeImageToUnclickedPink() {
+  document.getElementById("pink-button").src = "pictures/pink-button.jpg";
+}
+
+function changeImageToUnclickedMint() {
+  document.getElementById("mint-button").src = "pictures/mint-button.jpg";
+}
+
+function changeImageToUnclickedArmy() {
+  document.getElementById("army-button").src = "pictures/army-button.jpg";
+}
+
+function changeImageToUnclickedDotted() {
+  document.getElementById("dotted-button").src = "pictures/dotted-button.jpg";
+}
+
+function changeImageToUnclickedBeach() {
+  document.getElementById("beach-button").src = "pictures/beach-button.jpg";
+}
+
+function changeImageToUnclickedSurf() {
+  document.getElementById("surf-button").src = "pictures/surf-button.jpg";
+}
+
+
 
 function selectSizeS() {
   if(selectedSize != "s" ) {
@@ -234,6 +383,7 @@ function hoverOutSizeL() {
     changeImageToUnclickedL();
   }
 }
+
 function changeImageToClickedS() {
   document.getElementById("size-s").src = "pictures/size-s-click.png";
 }
@@ -241,7 +391,7 @@ function changeImageToUnclickedS() {
   document.getElementById("size-s").src = "pictures/size-s.png";
 }
 function changeImageToHoverS() {
-  document.getElementById("size-s").src = "#";
+  document.getElementById("size-s").src = "pictures/size-s-hover.png";
 }
 function changeImageToClickedM() {
   document.getElementById("size-m").src = "pictures/size-m-click.png";
@@ -250,7 +400,7 @@ function changeImageToUnclickedM() {
   document.getElementById("size-m").src = "pictures/size-m.png";
 }
 function changeImageToHoverM() {
-  document.getElementById("size-m").src = "#";
+  document.getElementById("size-m").src = "pictures/size-m-hover.png";
 }
 function changeImageToClickedL() {
   document.getElementById("size-l").src = "pictures/size-l-click.png";
