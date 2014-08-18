@@ -188,11 +188,10 @@ document.getElementById("add-cart").addEventListener('click', addToCart, false);
 document.getElementById("quantityInput").addEventListener('change',selectQuantity,false);
 
 document.getElementById("checkout").addEventListener('click', checkoutFunction, false);
-<<<<<<< HEAD
+
 document.getElementById("submit-shipping").addEventListener('click', createCust, false);
 document.getElementById("confirm").addEventListener('click', confirmation, false);
-=======
->>>>>>> eefb42b620e22cc06647b8fd250f443cae87dff4
+
 
 var mainImageChange = document.getElementById("main-image");
 
