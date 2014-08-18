@@ -114,6 +114,51 @@ function checkoutFunction() {
   }
 }
 
+
+//customer creator
+function Customer (name, street, city, state, zip) {
+  this.name = name;
+  this.street = street;
+  this.city = city;
+  this.state = state;
+  this.zip = zip;
+}
+
+function createCust () {
+  name = document.getElementById("input-name").value;
+  street = document.getElementById("input-street").value;
+  city = document.getElementById("input-city").value;
+  state = document.getElementById("input-state").value;
+  zip = document.getElementById("input-zip").value;
+
+  newCust = new Customer(name, street, city, state, zip);
+
+}
+
+function confirmation () {
+
+  //scrolls down to confirmation
+  location.href="#";
+  location.href="#conf-bookmark";
+
+  document.getElementById("result-name").innerHTML = newCust.name
+  document.getElementById("result-address1").innerHTML = newCust.street
+  document.getElementById("result-address2").innerHTML = newCust.city + " " + newCust.state + " " + newCust.zip
+
+  for(i = 0; i < orderList.length; i++) {
+    var div = document.createElement("div");
+    var node = document.createTextNode("Brief: " + orderList[i].color + " " + orderList[i].size);
+    div.appendChild(node);
+
+    var element = document.getElementById("result-cart");
+    element.appendChild(div);
+  }
+
+  document.getElementById("result-total").innerHTML = document.getElementById("total-value").innerHTML
+
+
+}
+
 // Sets selectedColor to pink/mint/army/dotted/beach/surf
 document.getElementById("pink-button").addEventListener('click', selectColorPink,false);
 document.getElementById("mint-button").addEventListener("click", selectColorMint,false);
@@ -143,6 +188,11 @@ document.getElementById("add-cart").addEventListener('click', addToCart, false);
 document.getElementById("quantityInput").addEventListener('change',selectQuantity,false);
 
 document.getElementById("checkout").addEventListener('click', checkoutFunction, false);
+<<<<<<< HEAD
+document.getElementById("submit-shipping").addEventListener('click', createCust, false);
+document.getElementById("confirm").addEventListener('click', confirmation, false);
+=======
+>>>>>>> eefb42b620e22cc06647b8fd250f443cae87dff4
 
 var mainImageChange = document.getElementById("main-image");
 
