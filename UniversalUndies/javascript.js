@@ -108,13 +108,25 @@ function checkoutFunction() {
     total = total + tax
     document.getElementById("tax-value").innerHTML = "$" + parseFloat(tax).toFixed(2)
     document.getElementById("total-value").innerHTML = "$" + parseFloat(total).toFixed(2)
-
   }
   else {
     alert("Select a size, color, and quantity.");
   }
 }
-
+function remove() {
+  removeID = document.getElementById("remove").value;
+  if(removeID < orderList.length) {
+    orderList.splice(removeID - 1, 1);
+          for(i = 0; orderList.length; i++) {
+            alert(orderList.length);
+          }
+    checkoutFunction();
+    document.getElementById("remove-button").value = "Remove Item #: ";
+  }
+  else {
+    document.getElementById("remove-button").value = "Please try again.";
+  }
+}
 // Sets selectedColor to pink/mint/army/dotted/beach/surf
 document.getElementById("pink-button").addEventListener('click', selectColorPink,false);
 document.getElementById("mint-button").addEventListener("click", selectColorMint,false);
@@ -144,6 +156,7 @@ document.getElementById("add-cart").addEventListener('click', addToCart, false);
 document.getElementById("quantityInput").addEventListener('change',selectQuantity,false);
 
 document.getElementById("checkout").addEventListener('click', checkoutFunction, false);
+document.getElementById("remove-button").addEventListener('click', remove, false);
 
 var mainImageChange = document.getElementById("main-image");
 
