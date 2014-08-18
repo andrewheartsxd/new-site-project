@@ -1,6 +1,6 @@
 .background{
   position: fixed;
-  z-index: -1;
+  z-index: -2;
   opacity: 0.3;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -14,12 +14,6 @@
   margin-left: 10%;
   padding: 10px 10px 10px 10px;
 
-}
-
-#main-image{
-  opacity: 0.8;
-  width: 400px;
-  height: 400px;
 }
 
 .size-buttons{
