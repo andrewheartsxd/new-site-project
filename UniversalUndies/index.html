@@ -6,9 +6,14 @@
         <link rel="stylesheet" type="text/css" href="skeleton.css">
         <link rel="stylesheet" type="text/css" href="primer.css">
         <link rel="stylesheet" type="text/css" href="index.css">
+
         <link rel="stylesheet" type="text/css" href="states.css">
         <link rel="stylesheet" type="text/css" href="themes.css">
-        <script src="buttons.js"></script>
+        <script src="javascript.js"></script>
+
+        <link rel="stylesheet" type="text/css" href="state.css">
+        <link rel="stylesheet" type="text/css" href="theme.css">
+
     </head>
     <body>
         <main class="container">
@@ -44,22 +49,24 @@
                         <p class="cost">$50.00</p>
                         <br>
                         <div class="size-buttons">
-                            <img id="size-s" src="pictures/size-s.png" onclick="changeimageS();">
-                            <img id="size-m;" src="pictures/size-m.png" onclick="changeimageM();">
-                            <img id="size-l" src="pictures/size-l.png" onclick="changeimageL();">
+
+                            <img id="size-s" src="pictures/size-s.png">
+                            <img id="size-m" src="pictures/size-m.png">
+                            <img id="size-l" src="pictures/size-l.png">
+
                         </div>
                         <br>
                         <div class="color-buttons">
-                            <a href="#"><img src="pictures/pink-button.jpg"></a>
-                            <a href="#"><img src="pictures/mint-button.jpg"></a>
-                            <a href="#"><img src="pictures/army-button.jpg"></a>
-                            <a href="#"><img src="pictures/dotted-button.jpg"></a>
-                            <a href="#"><img src="pictures/beach-button.jpg"></a>
-                            <a href="#"><img src="pictures/surf-button.jpg"></a>
+                            <a href="#"><img src="pictures/pink-button.jpg" id="pink-button"></a>
+                            <a href="#"><img src="pictures/mint-button.jpg" id="mint-button"></a>
+                            <a href="#"><img src="pictures/army-button.jpg" id="army-button"></a>
+                            <a href="#"><img src="pictures/dotted-button.jpg" id="dotted-button"></a>
+                            <a href="#"><img src="pictures/beach-button.jpg" id="beach-button"></a>
+                            <a href="#"><img src="pictures/surf-button.jpg" id="surf-button"></a>
                         </div>
                         <br>
-                        <pre><div class="quantity" id="incdec">QUANTITY:  <input id="quantity" type="text" value="0"></div></pre>
-                        <input id="add-cart" type="button" value="ADD TO CART">
+                        <pre><div class="quantity" id="incdec">QUANTITY:  <input id="quantityInput" type="text" value="0"></div></pre>
+                        <input id="add-cart" type="button" value="ADD TO CART"> <input id="checkout" type="button" value="CHECKOUT">
                     </div>
                 <div>
                 <div class="info ten columns">
@@ -73,7 +80,7 @@
                         <li>Contour pouch for superior comfort and support</li>
                         <li>Low Fiber Rigidity</li>
                         <li>Made in Turkey</li>
-                        <li>Full of Code Fellow Awesomness</li>
+                        <li id="checkout-bookmark">Full of Code Fellow Awesomness</li>
                     </ul>
                 </div>
 
@@ -90,20 +97,20 @@
 
                 <div class="checkout">
                     <div class="checkout-item-column eight columns">
-                        <div class="checkout-item-title">ITEMS</div><br>
-                        <div id="checkout-item"></div>
+                        <div id="checkout-item-title" class="checkout-item-title">ITEMS</div><br>
+                        <!-- <div id="checkout-item">ITEM1</div> -->
                     </div>
                     <div class="checkout-quantity-column two columns">
-                        <div class="checkout-quantity-title">QUANTITY</div><br>
-                        <div id="checkout-item"></div>
+                        <div id="checkout-quantity-title" class="checkout-quantity-title">QUANTITY</div><br>
+                        <!-- <div id="checkout-quantity"></div> -->
                     </div>
                     <div class="checkout-price-column three columns">
-                        <div class="checkout-price-title">PRICE</div><br>
-                        <div id="checkout-price"></div>
+                        <div id="checkout-price-title" class="checkout-price-title">PRICE</div><br>
+                        <!-- <div id="checkout-price"></div> -->
                     </div>
-                    <div class="checkout-toal-column three columns">
-                        <div class="checkout-total-title">TOTAL</div><br>
-                        <div id="checkout-total"></div>
+                    <div class="checkout-total-column three columns">
+                        <div id="checkout-total-title" class="checkout-total-title">SUBTOTAL</div><br>
+                        <!-- <div id="checkout-total"></div> -->
                     </div>
 
                     <div class="sixteen columns">&nbsp;</div>
@@ -118,7 +125,7 @@
                     <div class="addon-values three columns">
                         <div id="shipping-value">FREE SHIPPING</div>
                         <div id="tax-value"></div>
-                        <div class="total-value"></div>
+                        <div id="total-value" class="total-value"></div>
                     </div>
                 </div>
 
@@ -171,6 +178,6 @@
             </section>
             <br>
         </main>
-        </script>
+        <script src="javascript.js"></script>
     </body>
 </html>
