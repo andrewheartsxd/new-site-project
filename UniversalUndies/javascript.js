@@ -31,7 +31,6 @@ function addToCart() {
     if(selectedColor === productList[i].color && selectedSize === productList[i].size && selectedQuantity > 0) {
       productList[i].productNo += selectedQuantity;
       // var cartFull = true
-      alert(productList[i].color + productList[i].size + productList[i].price + productList[i].productNo)
     }
     else {
       // var cartFull = false
@@ -108,25 +107,58 @@ function checkoutFunction() {
     total = total + tax
     document.getElementById("tax-value").innerHTML = "$" + parseFloat(tax).toFixed(2)
     document.getElementById("total-value").innerHTML = "$" + parseFloat(total).toFixed(2)
+
   }
   else {
     alert("Select a size, color, and quantity.");
   }
 }
-function remove() {
-  removeID = document.getElementById("remove").value;
-  if(removeID < orderList.length) {
-    orderList.splice(removeID - 1, 1);
-          for(i = 0; orderList.length; i++) {
-            alert(orderList.length);
-          }
-    checkoutFunction();
-    document.getElementById("remove-button").value = "Remove Item #: ";
-  }
-  else {
-    document.getElementById("remove-button").value = "Please try again.";
-  }
+
+//customer creator
+function Customer (name, street, city, state, zip) {
+  this.name = name;
+  this.street = street;
+  this.city = city;
+  this.state = state;
+  this.zip = zip;
 }
+
+function createCust () {
+  name = document.getElementById("input-name").value;
+  street = document.getElementById("input-street").value;
+  city = document.getElementById("input-city").value;
+  state = document.getElementById("input-state").value;
+  zip = document.getElementById("input-zip").value;
+
+  newCust = new Customer(name, street, city, state, zip);
+
+}
+
+function confirmation () {
+
+  //scrolls down to confirmation
+  location.href="#";
+  location.href="#conf-bookmark";
+
+  document.getElementById("result-name").innerHTML = newCust.name
+  document.getElementById("result-address1").innerHTML = newCust.street
+  document.getElementById("result-address2").innerHTML = newCust.city + " " + newCust.state + " " + newCust.zip
+
+  for(i = 0; i < orderList.length; i++) {
+    var div = document.createElement("div");
+    var node = document.createTextNode("Brief: " + orderList[i].color + " " + orderList[i].size);
+    div.appendChild(node);
+
+    var element = document.getElementById("result-cart");
+    element.appendChild(div);
+  }
+
+  document.getElementById("result-total").innerHTML = document.getElementById("total-value").innerHTML
+
+
+}
+
+
 // Sets selectedColor to pink/mint/army/dotted/beach/surf
 document.getElementById("pink-button").addEventListener('click', selectColorPink,false);
 document.getElementById("mint-button").addEventListener("click", selectColorMint,false);
@@ -156,7 +188,8 @@ document.getElementById("add-cart").addEventListener('click', addToCart, false);
 document.getElementById("quantityInput").addEventListener('change',selectQuantity,false);
 
 document.getElementById("checkout").addEventListener('click', checkoutFunction, false);
-document.getElementById("remove-button").addEventListener('click', remove, false);
+document.getElementById("submit-shipping").addEventListener('click', createCust, false);
+document.getElementById("confirm").addEventListener('click', confirmation, false);
 
 var mainImageChange = document.getElementById("main-image");
 

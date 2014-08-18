@@ -69,7 +69,7 @@
                             <img src="pictures/surf-button.jpg" id="surf-button">
                         </div>
                         <br>
-                        <pre><div class="quantity" id="incdec">QUANTITY:  <input id="quantityInput" type="text" value="0" min="0"></div></pre>
+                        <pre><div class="quantity" id="incdec">QUANTITY:  <input id="quantityInput" type="text" value="0"></div></pre>
                         <input id="add-cart" type="button" value="ADD TO CART">
                         <input id="checkout" type="button" value="CHECKOUT">
                     </div>
@@ -117,10 +117,7 @@
                         <div id="checkout-total-title" class="checkout-total-title">SUBTOTAL</div><br>
                         <!-- <div id="checkout-total"></div> -->
                     </div>
-                    <div class="checkout-remove column eight columns">
-                        <input id="remove-button" type="button" value="Remove Item #: ">
-                        <input id="remove" type="text" min="1">
-                    </div>
+
                     <div class="sixteen columns">&nbsp;</div>
 
                     <div class="eight columns">&nbsp;</div>
@@ -150,10 +147,11 @@
                         <pre><div class="address-name">NAME:                                       <input id="input-name" type="text"></div></pre>
                         <pre><div class="address-street">STREET:                                       <input id="input-street" type="text"></div></pre>
                         <pre><div class="address-city">CITY:                                          <input id="input-city" type="text"></div></pre>
-                        <pre><div class="address-zip">STATE:                                        <input id="input-zip" type="text"></div></pre>
+                        <pre><div class="address-state">STATE:                                        <input id="input-state" type="text"></div></pre>
                         <pre><div class="address-zip">ZIP CODE:                                  <input id="input-zip" type="text"></div></pre>
 
                         <input id="submit-shipping"type="button" value="SUBMIT">
+                        <input id="confirm"type="button" value="CONFIRM">
                     </div>
                     <div class="payment eight columns">
                         <div class="payment-title">PAYMENT</div>
@@ -163,17 +161,18 @@
 
                 <!--SPACING////////////////////////////////-->
                 <div class="sixteen columns">&nbsp;</div>
-                <div class="sixteen columns">&nbsp;</div>
+                <div id="conf-bookmark" class="sixteen columns">&nbsp;</div>
                 <div class="sixteen columns">&nbsp;</div>
                 <!--SPACING////////////////////////////////-->
 
                 <div class="confirmation sixteen columns">
                     <div class="confirmation-title">CONFIRMATION</div>
                     <br>
-                    <div id="result-name"></div>
-                    <div id="result-address"></div>
-                    <div id="result-cart"></div>
-                    <div id="result-total"></div>
+                    <div class="address-name">NAME:   </div><div id="result-name"></div>
+                    <div class="address-street">ADDRESS:  </div><div id="result-address1"></div>
+                    <div id="result-address2"></div>
+                    <div class="cart">ITEMS:   </div><div id="result-cart"></div>
+                    <div class="total">TOTAL:   </div><div id="result-total"></div>
                 </div>
                 <div class="sixteen columns">&nbsp;</div>
                 <div class="thank-you sixteen columns">THANK YOU FOR SHOPPING!</div>
