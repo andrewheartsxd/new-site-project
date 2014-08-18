@@ -83,7 +83,7 @@ function checkoutFunction() {
     //Under "Price" lists price of items in cart
     for(i = 0; i < orderList.length; i++) {
       var div = document.createElement("div");
-      var node = document.createTextNode("$" + orderList[i].price + ".00");
+      var node = document.createTextNode("$" + parseFloat(orderList[i].price).toFixed(2));
       div.appendChild(node);
 
       var element = document.getElementById("checkout-price-title");
@@ -92,7 +92,7 @@ function checkoutFunction() {
     //Under "Subtotal" lists subtotal of items in cart
     for(i = 0; i < orderList.length; i++) {
       var div = document.createElement("div");
-      var node = document.createTextNode("$" + orderList[i].price * orderList[i].productNo + ".00");
+      var node = document.createTextNode("$" + parseFloat(orderList[i].price * orderList[i].productNo).toFixed(2));
       div.appendChild(node);
 
       var element = document.getElementById("checkout-total-title");
@@ -106,8 +106,8 @@ function checkoutFunction() {
     }
     var tax = (0.095 * total)
     total = total + tax
-    document.getElementById("tax-value").innerHTML = "$" + tax + ".00"
-    document.getElementById("total-value").innerHTML = "$" + total + ".00"
+    document.getElementById("tax-value").innerHTML = "$" + parseFloat(tax).toFixed(2)
+    document.getElementById("total-value").innerHTML = "$" + parseFloat(total).toFixed(2)
 
   }
   else {
